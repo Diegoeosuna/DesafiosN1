@@ -44,7 +44,7 @@ describe("devolverPrimerElemento(arr)", function () {
   
   describe("devolverUltimoElemento(arr)", function () {
     it("debe retornar el último elemento del array", function () {
-      expect(devolverUltimoElemento([13, 54, 46, 12])).toBe(13);
+      expect(devolverUltimoElemento([13, 54, 46, 12])).toBe(12);
       expect(devolverUltimoElemento([89, 55, 85, 13, 25, 56])).toBe(56);
       expect(devolverUltimoElemento(["How", "are", "you?"])).toBe("you?");
     });
@@ -95,7 +95,7 @@ describe("devolverPrimerElemento(arr)", function () {
   
   describe('todosIguales(arreglo)', function() {
     it('debes retornar true si todos los elementos del array son iguales,caso contraro, false', function() {
-      expect(todosIguales([20, 20, 20, 20 ])).toBe(true);
+      expect(todosIguales([20, 20, 20, 20])).toBe(true);
       expect(todosIguales([97, 100, 190, 9])).toBe(false);
      
       expect(todosIguales([230, 230, 230, 230 ])).toBe(true);

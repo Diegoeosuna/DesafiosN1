@@ -260,11 +260,15 @@ return array
 function devolverPrimerElemento(array) {
   /*   Devuelve el primer elemento de un  array (pasado por parametro)
    ↓↓↓ Tu código: ↓↓↓ */
+  const elemento = array.shift()
+  return elemento
 }
 
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  const elemento = array[array.length - 1]
+  return elemento;
 }
 
 function dePalabrasAFrase(palabras) {
@@ -273,23 +277,36 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello','world!'] -> 'Hello World!'
   // Tu código:
+  const palabrasAFrase = palabras.join(" ");
+  return palabrasAFrase
 }
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
+  const contenido = array.includes(elemento)
+  return contenido;
 }
 
 function agregarNumeros(numeros) {
   // "numeros" es un array de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor(puedes usar .reduce() )
   // Tu código:
+  function suma (a,b){
+  return a+b;
+  }
+  const sumaFuncion = numeros.reduce(suma);
+  return sumaFuncion
+
 }
 
 function cuentoElementos(arreglo) {
   //Realiza una función que retorne la cantidad de los elementos del array donde el valor es mayor a 18.
   //Escribe tu código aquí:
+const resultado = arreglo.filter(numeros => numeros > 18);
+const conteo = resultado.length
+return conteo
 }
 
 function empiezaConNueve(n) {
@@ -297,12 +314,26 @@ function empiezaConNueve(n) {
   //inicia con 9 y false en otro caso.
   //PISTA: para saber si un numero comienza con 9 debes pasarlo a string y analizar la posicion [0] del numero convertido.
   //Escribe tu código aquí
+  const digitos = String(n).split('').map(Number)
+  if (digitos[0] === 9){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function todosIguales(arreglo) {
   //indique si todos los elementos de un arreglo son iguales:
   //retornar true si son todos iguales, caso contrario retornar false.
   //Escribe tu código aquí
+  const igualesTodos = arreglo.every(element => {
+    if (element === arreglo[0]){
+      return true
+    } else {
+      return false
+    }
+  })
+  return igualesTodos
 }
 
 function mesesDelAño(array) {
@@ -310,11 +341,29 @@ function mesesDelAño(array) {
   //"Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  const mesPedido = []
+  const mesNoPedido = []
+  for (let i = 0; i < array.length; i++){
+    if(array[i] === "Marzo" || array[i] === "Enero" || array[i] === "Noviembre"){
+      mesPedido.push(array[i])
+    } else{
+      mesNoPedido.push(array[i])
+    }
+  } 
+  for (let j = 0; j < mesNoPedido.length; j++){
+    if(mesNoPedido[j] !== "Marzo" || mesNoPedido[j] !== "Enero" || mesNoPedido[j] !== "Noviembre"){
+      return mesPedido
+    }else{
+      break
+    } 
+}
 }
 
 function elementosMayores(array) {
   //Realiza una función que retorne la cantidad de los elementos del arreglo donde el valor sea mayor a 18
   //Escribe tu código aquí:
+  const elementosTotales = array.filter(edad => edad > 18);
+  return elementosTotales.length
 }
 
 function mayorACien(array) {
@@ -322,6 +371,8 @@ function mayorACien(array) {
  valores mayores a 100 (no incluye el 100).
 La funcion debe devolver el nuevo array. */
   // Tu código:
+  const elementosTotales = array.filter(numero => numero > 100);
+  return elementosTotales
 }
 
 // // No modificar nada debajo de esta línea//
@@ -357,5 +408,4 @@ module.exports = {
   todosIguales,
   mesesDelAño,
   elementosMayores,
-  mayorACien,
-};
+  mayorACien,}
